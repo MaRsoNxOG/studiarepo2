@@ -1,0 +1,79 @@
+% --- USTAWIENIA DOKUMENTU ---
+\documentclass[12pt, a4paper]{report} 
+
+% Pakiety do obslugi jezyka i czcionek
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{url} % Do linku Git
+
+% Pakiety do grafiki, tabel i bibliografii
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{natbib}
+\bibliographystyle{plainnat} 
+\usepackage{fancyhdr} 
+
+% Zmienne autora i tytulu
+\newcommand{\autor}{Mateusz Majerz / 290287} 
+\newcommand{\tytuldokumentu}{Projekt Zaliczeniowy: Zlozony Dokument Techniczny w LaTeX}
+\newcommand{\datapotworzenia}{\today}
+\newcommand{\skroconytutul}{Raport PWr}
+
+% Ręczna ZMIANA NAZW SEKCJI
+\renewcommand{\abstractname}{Streszczenie}
+\renewcommand{\contentsname}{Spis Tresci}
+\renewcommand{\bibname}{Bibliografia}
+
+% KONFIGURACJA NAGŁÓWKÓW
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[R]{\skroconytutul\ | \autor} 
+\fancyhead[L]{\nouppercase{\rightmark}} 
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+% -----------------------------
+
+\begin{document}
+
+% --- STRONA TYTUŁOWA ---
+\begin{titlepage}
+    \centering
+    \vspace*{1in}
+    {\Huge \textbf{\tytuldokumentu} \par}
+    \vspace{1.5in}
+    {\Large Autor: \autor \par} 
+    \vfill
+    {\large Politechnika Wroclawska \par}
+    {\large \datapotworzenia \par} 
+\end{titlepage}
+% -----------------------------
+
+% --- SPIS TREŚCI ---
+\tableofcontents
+\cleardoublepage
+% -----------------------------
+
+% --- STRESZCZENIE ---
+\chapter*{\abstractname} 
+\addcontentsline{toc}{chapter}{Streszczenie} 
+To jest streszczenie dokumentu. Praca ma na celu wykazanie umiejetnosci przygotowania formalnego raportu technicznego przy uzyciu systemu skladu tekstu LaTeX, spelniajacego wszystkie wymagane kryteria formalne i techniczne \citep{klucz_ksiazka}.
+\cleardoublepage
+% -----------------------------
+
+
+% =============================================
+% --- WŁĄCZENIE ZEWNĘTRZNYCH ROZDZIAŁÓW ---
+% =============================================
+
+\include{rozdzial1_wprowadzenie}
+\include{rozdzial2_tresc}
+\include{rozdzial3_wnioski}
+
+\cleardoublepage
+
+% --- BIBLIOGRAFIA ---
+\bibliography{bibliografia} 
+% -----------------------------
+
+\end{document}
